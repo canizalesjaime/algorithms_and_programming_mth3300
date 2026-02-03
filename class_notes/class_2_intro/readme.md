@@ -78,7 +78,7 @@ print("Result:", x)
 
 ## 4. Putting It All Together
 
-x = 5 + 3
+x = 5 + 3<br>
 print(x)
 
 What happens:
@@ -105,6 +105,7 @@ name = "Albert"
 - The values they refer to are stored in RAM while the program runs
 - Python uses dynamic typing (the type comes from the value)
 - Variable names can be arbitrarily long. They can contain both letters, digits, and underscores.
+- Note, there are certain words considered **keywords**(if, and, or for, while, class, etc). Which can not be used as variable names. Python interpretor will complain and forbid if you try to use these.
 
 Common data types:
 - int → 10
@@ -117,8 +118,8 @@ Common data types:
 ### Expressions
 An expression is code that evaluates to a value.
 
-x + 5
-len(name)
+x + 5<br>
+len(name)<br>
 x > 5
 
 - Expressions are evaluated by the CPU

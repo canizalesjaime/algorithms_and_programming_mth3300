@@ -9,3 +9,4 @@ RUN apt install vim -y
 RUN apt install build-essential -y
 RUN apt install -y python3
 RUN apt install python3-pip -y
+RUN apt install -y python3-tk

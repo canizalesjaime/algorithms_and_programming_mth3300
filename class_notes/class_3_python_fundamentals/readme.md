@@ -9,6 +9,22 @@
 6. In class assignments
 
 ## Type Converter Functions
+First off, if we want to know what is the data type of a variable in python we use the type function. Note python uses dynamic typing, which means the programmer doesn't specify the variable
+type, instead the python interpretor makes an inference on the type based on the data to the rightside of the = operator.
+```python
+x = 7
+print(type(x)) # integer
+
+y = 3.14159
+print(type(y)) # float
+
+a = "apple"
+print(type(a)) # string
+
+z = False
+print(type(z)) # bool
+```
+
 These functions transform data from one type to another. Common ones include:
 - `int()` - converts to integer (whole numbers)
 - `float()` - converts to decimal numbers
@@ -77,6 +93,42 @@ Returns the **remainder** after division. Think of it as "what's left over" afte
 ## Binary Numbers
 Binary numbers are important because they are the language all our computers use. Knowing what they are will help us better understand exactly how computers work. <br><br>
 Binary uses only 0s and 1s (base-2). Each position represents a power of 2.
+
+
+Decimal | Binary    | Hexadecimal(base 16)
+--------|-----------|------------
+0       |     0     | 0
+1       |     1     | 1
+2       |    10     | 2
+3       |    11     | 3
+4       |   100     | 4
+5       |   101     | 5
+6       |   110     | 6
+7       |   111     | 7
+8       |  1000     | 8
+9       |  1001     | 9
+10      |  1010     | A
+11      |  1011     | B
+12      |  1100     | C
+13      |  1101     | D
+14      |  1110     | E
+15      |  1111     | F
+16      | 10000     | 10
+17      | 10001     | 11
+18      | 10010     | 12
+19      | 10011     | 13
+20      | 10100     | 14
+21      | 10101     | 15
+22      | 10110     | 16
+23      | 10111     | 17
+24      | 11000     | 18
+25      | 11001     | 19
+26      | 11010     | 1A
+27      | 11011     | 1B
+28      | 11100     | 1C
+29      | 11101     | 1D
+30      | 11110     | 1E
+
 
 **Converting decimal to binary (Algorithm):**
 To convert a decimal number to binary, repeatedly divide by 2 and track the remainders:

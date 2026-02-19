@@ -52,13 +52,13 @@ else:
 
 ### Comparison operators
 
-| Operator | Meaning |
-| == | equal to |
-| != | not equal |
-| > | greater than |
-| < | less than |
-| >= | greater than or equal to |
-| <= | less than or equal to |
+| Operator | Meaning |<br>
+| == | equal to |<br>
+| != | not equal |<br>
+| > | greater than |<br>
+| < | less than |<br>
+| >= | greater than or equal to |<br>
+| <= | less than or equal to |<br>
 
 ### Logical operators
 
@@ -178,10 +178,10 @@ for letter in "robot":
 
 ### For loop vs While loop
 
-| For Loop | While Loop |
-| Known number of iterations | Unknown number of iterations |
-| Cleaner for sequences | More flexible |
-| Lower risk of infinite loops | Higher risk if misused |
+| For Loop | While Loop |<br>
+| Known number of iterations | Unknown number of iterations |<br>
+| Cleaner for sequences | More flexible |<br>
+| Lower risk of infinite loops | Higher risk if misused |<br>
 
 
 ## In Class Assigments

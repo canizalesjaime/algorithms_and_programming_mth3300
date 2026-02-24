@@ -15,6 +15,7 @@ def question2():
             break
         else:
             print(i)
+        i=i+1
 
 
 def question3():

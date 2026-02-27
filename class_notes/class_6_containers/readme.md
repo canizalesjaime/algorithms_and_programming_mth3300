@@ -6,9 +6,6 @@
 3. Tuples
 4. In Class Assignments 
 
-
-# Python Lists, Dictionaries, and Tuples
-
 ## Lists
 A list is an ordered, mutable collection of items. Lists can contain any data type, including mixed types.
 
@@ -88,7 +85,62 @@ nums[::-1] → reversed sequence
 - strings  
 - tuples  
 
-#### Common Mistakes
+
+### Difference Between `list2 = list1` and `list2 = list1[:]`
+
+Assume:
+list1 = [1, 2, 3]
+
+---
+
+#### list2 = list1
+
+This does NOT create a new list.  
+Both variables point to the same list in memory.
+
+list2 = list1
+list2[0] = 99
+
+Result:
+list1 → [99, 2, 3]  
+list2 → [99, 2, 3]
+
+Explanation:
+You copied the reference, not the data.  
+Any change through one variable affects the other.
+
+Think: two names for the same object.
+
+---
+
+#### list2 = list1[:]
+
+This creates a NEW list with the same elements.
+
+list2 = list1[:]
+list2[0] = 99
+
+Result:
+list1 → [1, 2, 3]  
+list2 → [99, 2, 3]
+
+Explanation:
+Slicing copies the elements into a new list,  
+so modifying one list does not affect the other.
+
+Think: a new container with the same contents.
+
+
+#### Key Difference
+
+list2 = list1  
+→ same object, changes affect both
+
+list2 = list1[:]  
+→ new object, changes are independent
+
+
+### Common Mistakes
 - forgetting stop is exclusive  
 - confusing negative indices  
 - assuming slicing modifies the original (it returns a new object)
@@ -97,7 +149,6 @@ nums[::-1] → reversed sequence
 for n in numbers:  
     print(n)
 
----
 
 ## Dictionaries
 A dictionary is a mutable collection of key–value pairs. Keys must be unique and immutable.

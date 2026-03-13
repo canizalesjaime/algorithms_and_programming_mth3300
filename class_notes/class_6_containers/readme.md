@@ -151,61 +151,209 @@ for n in numbers:
 
 
 ## Dictionaries
-A dictionary is a mutable collection of key–value pairs. Keys must be unique and immutable.
+A dictionary in Python is a mutable collection of key–value pairs. Each key maps to a specific value, allowing you to retrieve data quickly using the key instead of searching through the entire collection.
+
+Dictionaries are useful for representing structured data where each piece of information has a label. For example, information about a student, configuration settings, or mappings between IDs and objects.
+
+### Key properties of dictionaries
+
+- Keys must be unique — if the same key is used again, the previous value will be overwritten.
+- Keys must be immutable types (such as strings, numbers, or tuples).
+- Values can be any Python type (numbers, strings, lists, dictionaries, etc.).
+- Dictionaries are mutable, meaning they can be modified after creation.
 
 ### Creating a dictionary
-student = {  
-    "name": "Alex",  
-    "age": 21,  
-    "major": "CS"  
+
+Dictionaries are created using curly braces {} with key–value pairs separated by colons.
+
+student = {
+    "name": "Alex",
+    "age": 21,
+    "major": "CS"
 }
 
+Here:
+- "name", "age", and "major" are the keys
+- "Alex", 21, and "CS" are the values
+
 ### Accessing values
-student["name"]  
+
+Values are retrieved using their key.
+
+student["name"]
 student.get("age")
 
-### Adding and updating
-student["gpa"] = 3.8  
+student["name"] returns the value associated with the key "name".
+
+The get() method is safer when you are unsure if a key exists.
+
+student.get("gpa")
+
+If the key does not exist:
+- student["gpa"] would raise an error
+- student.get("gpa") returns None
+
+You can also provide a default value:
+
+student.get("gpa", 0.0)
+
+### Adding and updating values
+
+Because dictionaries are mutable, you can add new key–value pairs or update existing ones.
+
+Adding a new key:
+
+student["gpa"] = 3.8
+
+Updating an existing key:
+
 student["age"] = 22
 
-### Removing
-student.pop("major")  
+If the key already exists, its value will be replaced.
+
+### Removing elements
+
+Items can be removed using pop() or del.
+
+student.pop("major")
+
+This removes the key "major" and returns its value.
+
 del student["age"]
 
-### Iterating
-for key, value in student.items():  
+This deletes the key "age" from the dictionary.
+
+### Iterating through a dictionary
+
+You can loop through the key–value pairs using items().
+
+for key, value in student.items():
     print(key, value)
+
+Example output:
+
+name Alex
+age 22
+gpa 3.8
+
+Other useful iteration methods:
+
+student.keys()    # iterate over keys
+student.values()  # iterate over values
+
 
 ---
 
 ## Tuples
-A tuple is an ordered, immutable collection of items.
+
+A tuple is an ordered, immutable collection of elements. Tuples are similar to lists, but their contents cannot be changed after creation.
+
+Tuples are often used to represent fixed data structures such as coordinates, database records, or function return values.
+
+### Key properties of tuples
+
+- Ordered — elements have a defined position
+- Immutable — elements cannot be modified, added, or removed
+- Allow duplicate values
+- Can contain multiple data types
 
 ### Creating tuples
-point = (3, 4)  
-single = (5,)  
+
+Tuples are created using parentheses ().
+
+point = (3, 4)
+
+This tuple might represent a 2D coordinate.
+
+A single-element tuple must include a comma:
+
+single = (5,)
+
+Without the comma:
+
+single = (5)
+
+Python interprets it as just the integer 5.
+
+An empty tuple:
+
 empty = ()
 
 ### Accessing elements
-point[0]  
+
+Tuple elements are accessed using indexing.
+
+point[0]
 point[-1]
 
+point[0] returns the first element.
+point[-1] returns the last element.
+
 ### Tuple unpacking
+
+Tuple unpacking allows elements of a tuple to be assigned directly to variables.
+
 x, y = point
 
-### Example returning multiple values
-def min_max(values):  
+Now:
+x = 3
+y = 4
+
+This is useful when working with structured data.
+
+Example swapping variables:
+
+a, b = 10, 20
+a, b = b, a
+
+### Returning multiple values from a function
+
+Python functions can return multiple values by returning a tuple.
+
+def min_max(values):
     return min(values), max(values)
 
+The returned tuple can be unpacked:
+
 low, high = min_max([1, 5, 2])
+
+Results:
+low = 1
+high = 5
+
 
 ---
 
 ## When to Use Each
-- Use a list when you need an ordered collection that may change  
-- Use a dictionary when you need fast lookup by key  
-- Use a tuple when the data should remain constant or represent a fixed record
 
+Use a list when:
+- You need an ordered collection that may change
+- Items will be added, removed, or modified
+
+Use a dictionary when:
+- You need fast lookup by key
+- Data has labeled attributes
+
+Use a tuple when:
+- The data should remain constant
+- The structure represents a fixed record
+
+Summary:
+
+List
+- Ordered
+- Mutable
+- Good for general collections
+
+Dictionary
+- Key-based lookup
+- Mutable
+- Good for structured labeled data
+
+Tuple
+- Ordered
+- Immutable
+- Good for fixed data structures
 
 ## In Class Assignments
 

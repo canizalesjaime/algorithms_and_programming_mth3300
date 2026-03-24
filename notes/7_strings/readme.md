@@ -4,12 +4,11 @@
 1. Strings
 2. String Comparison 
 3. Split
-4. In Class Assignments 
+4. Find
+5. In Class Assignments 
 
 ## Strings
 A **string in Python** is a sequence of characters used to represent text. It’s one of the most commonly used data types.
-
----
 
 ### Creating Strings
 You can define strings using single, double, or triple quotes:
@@ -94,6 +93,50 @@ s.split()      # ["Hello", "World"]
 
 ---
 
+### More on Strip
+The strip() method in Python is used to remove unwanted characters from the beginning and end of a string, most commonly whitespace (spaces, tabs, newlines).
+
+Basic Syntax:
+```
+string.strip([chars])
+```
+
+- chars (optional): a string of characters to remove.
+  - If omitted, it removes all leading and trailing whitespace.
+
+**Examples:**<br>
+1. Remove spaces (default)
+```python
+text = "   Hello World   "
+print(text.strip())
+# Output: "Hello World"
+```
+
+2. Remove specific characters
+```python
+text = "###Hello###"
+print(text.strip("#"))
+# Output: "Hello"
+```
+3. Remove multiple different characters
+```python
+text = "!?Hello!? "
+print(text.strip("!? "))
+# Output: "Hello"
+```
+4. Does not remove characters in the middle
+```python
+text = "   Hello   World   "
+print(text.strip())
+# Output: "Hello   World"
+# Only leading and trailing characters are removed, not the ones inside the string.
+```
+
+**Use case:**<br>
+strip() is very handy for cleaning input from files, user input, or logs, which is why we used it in the hard log-processing question to remove extra spaces around each line.
+
+---
+
 ### Immutability 
 Immutability means you can't change the state of the object, but you can changbe the object itself
 
@@ -125,26 +168,25 @@ print(f"My name is {name} and I am {age}")
 ### Escape characters
 Escape characters in Python are special sequences that start with a backslash `\` and represent characters that are hard to type directly or have special meaning.
 
-
-#### Common escape characters
-
 ```python
-\'   # Single quote
-\"   # Double quote
-\\   # Backslash
+# \'   # Single quote
+# \"   # Double quote
+# \\   # Backslash
+
+print('Hello\'s world')
+print("Mike says \"apples are green sometimes\" ")
+# avoids conflict with special characters you want to print
 ```
 
 ---
 
-#### Whitespace / control characters
+### Whitespace / control characters
 
 ```python
 \n   # New line
 \t   # Tab (horizontal tab)
-\r   # Carriage return
-\b   # Backspace
-\f   # Form feed
-\v   # Vertical tab
+\r   # Carriage return (move cursor to the beginning of the line)
+\b   # Backspace (erase last character)
 ```
 
 
@@ -160,27 +202,28 @@ print("Hello\nWorld")
 print("Column1\tColumn2")
 # Column1    Column2
 
-print("He said \"Hello\"")
-# He said "Hello"
+print("Hello dude")
+# dudeo
+
+print("Ocean's are b\blue")
+# Ocean's are lue
 ```
 
 ---
 
-#### Raw strings (important)
+### Raw strings
+`r""` tells Python:
+> “Do NOT interpret escape characters”
 
 ```python
 print(r"C:\new\folder")
 # C:\new\folder
 ```
 
-👉 `r""` tells Python:
-> “Do NOT interpret escape characters”
 
 ---
 
-# 🔹 Common mistakes
-
-### Forgetting to escape backslashes
+### Forgetting to escape backslashes(Common mistake)
 ```python
 "C:\new\test"   #  \n and \t are interpreted
 ```
@@ -214,6 +257,12 @@ String comparison in Python is how you check if strings are equal, different, or
 
 Python compares strings **character by character using ASCII/Unicode values**.
 
+**ASCII (American Standard Code for Information Interchange):**<br>
+A 7-bit character encoding standard that maps numbers (0–127) to basic characters like letters, digits, and symbols (e.g., A, 1, @).
+
+**Unicode:**<br>
+A universal character encoding system that assigns a unique number (code point) to characters from almost all writing systems, symbols, and emojis worldwide.
+
 ```python
 "apple" < "banana"   # True
 "cat" > "car"        # True
@@ -239,25 +288,25 @@ Example:
 "A" < "a"   # True
 ```
 
-👉 Because:
-- `'A'` = 65
-- `'a'` = 97
+Because (in ASCII table):
+- `'A'` == 65
+- `'a'` == 97
 
 So uppercase letters come **before** lowercase.
 
 ---
 
-#### Comparing different lengths
+### Comparing different lengths
 
 ```python
 "app" < "apple"   # True
 ```
 
-👉 If one string is a prefix of another, the shorter one is smaller.
+If one string is a prefix of another, the shorter one is smaller.
 
 ---
 
-#### Case sensitivity
+### Case sensitivity
 
 ```python
 "hello" == "Hello"   # False
@@ -272,7 +321,8 @@ To ignore case:
 
 ---
 
-#### Using `ord()` to understand comparisons
+### Using `ord()` to understand comparisons
+    The function ord returns the ascii value of a character.
 
 ```python
 ord("a")  # 97
@@ -282,7 +332,7 @@ Helps explain why comparisons behave the way they do.
 
 ---
 
-#### Comparing multiple strings
+### Comparing multiple strings
 
 ```python
 "a" < "b" < "c"   # True
@@ -302,19 +352,6 @@ Python supports chaining comparisons.
 This checks **substring presence**, not ordering.
 
 ---
-
-#### Identity vs equality (important distinction)
-
-```python
-a = "hello"
-b = "hello"
-
-a == b   # True  (same content)
-a is b   # True or False (same object in memory?)
-```
-
-`==` → compares values<br>  
-`is` → compares memory identity  
 
 
 ## Split
@@ -396,7 +433,6 @@ print(text.split("\n"))
 ```
 
 Better alternative:
-
 ```python
 text.splitlines()
 ```
@@ -415,19 +451,7 @@ You just get the original string as a single element.
 
 ---
 
-### Empty string behavior
-
-```python
-"".split(",")   # ['']
-"".split()      # []
-```
-
-Subtle but important difference.
-
----
-
-### Use Cases
-#### Parse CSV-like data
+### Parse CSV-like data (Use Case)
 ```python
 data = "John,25,Engineer"
 name, age, job = data.split(",")
@@ -435,7 +459,7 @@ name, age, job = data.split(",")
 
 ---
 
-#### Extract words
+### Extract words (Use Case)
 ```python
 sentence = "Python is awesome"
 words = sentence.split()
@@ -443,7 +467,7 @@ words = sentence.split()
 
 ---
 
-#### File parsing
+### File parsing (Use Case)
 ```python
 line = "ERROR 404 PageNotFound"
 parts = line.split(" ", 2)
@@ -454,8 +478,7 @@ The `find()` method in Python is used to **search for a substring inside a strin
 
 ---
 
-### Basic idea
-
+### Example
 ```python
 text = "hello world"
 text.find("world")
@@ -467,7 +490,6 @@ It returns the **index of the first occurrence** of the substring.
 ---
 
 ### Syntax
-
 ```python
 string.find(substring, start, end)
 ```
@@ -479,7 +501,6 @@ string.find(substring, start, end)
 ---
 
 ### Return value (very important)
-
 ```python
 text = "hello"
 
@@ -555,9 +576,6 @@ at_index = email.find("@")
 username = email[:at_index]
 ```
 
----
-
-### Parse data
 ```python
 line = "key=value"
 pos = line.find("=")
@@ -569,10 +587,10 @@ value = line[pos+1:]
 
 
 ## In Class Assignments
-###
+### 1
 Given:
 ```python
-s = "python"
+s = "Crocodile"
 ```
 What is the output of:
 ```python
@@ -581,7 +599,7 @@ print(s[1:4])
 
 ---
 
-###
+### 2
 What is the difference in output between:
 ```python
 text = "  hello   world  "
@@ -593,7 +611,7 @@ Explain why they are different.
 
 ---
 
-###
+### 3
 Write a Python expression using `.split()` and indexing to extract the word `"world"` from:
 ```python
 text = "hello world python"
@@ -601,7 +619,7 @@ text = "hello world python"
 
 ---
 
-###
+### 4
 What will this code output and why?
 ```python
 print("Apple" < "apple")
@@ -609,14 +627,54 @@ print("Apple" < "apple")
 
 ---
 
-###
+### 5
 Given:
 ```python
 text = "banana"
 ```
 What does the following return?
 ```python
-text.find("a", 2)
+text.find("a", 3)
 ```
 Explain how the result is determined.
+
+### 6
+You are given a messy log string:
+
+```
+log = "  ERROR 404:PageNotFound\nINFO 200:OK\nWARNING 300:Redirect\nERROR 500:ServerError  "
+```
+
+**Task:**<br>
+**Write a function:**<br>
+
+def analyze_log(log):
+
+that returns a single formatted string with the following requirements:
+
+#### Requirements
+1. Clean the input
+   - Remove leading/trailing whitespace
+   - Split into individual lines properly
+
+2. Process each line
+   - Each line has the format: "LEVEL CODE:MESSAGE"
+   - Extract:
+     - LEVEL (e.g., ERROR, INFO)
+     - CODE (as integer)
+     - MESSAGE
+
+3. Filter
+   - Only include entries where:
+     - LEVEL == "ERROR" (case-insensitive)
+     - AND CODE >= 400
+
+4. Transform
+   - Convert all messages to lowercase
+   - Replace "error" in messages with "issue" (if present)
+
+5. Output format
+Return a single string using \n(Example Output):
+[500] serverissue
+[404] pagenotfound
 

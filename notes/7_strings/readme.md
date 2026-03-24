@@ -675,6 +675,7 @@ that returns a single formatted string with the following requirements:
 
 5. Output format
 Return a single string using \n(Example Output):
+```
 [500] serverissue
 [404] pagenotfound
-
+```

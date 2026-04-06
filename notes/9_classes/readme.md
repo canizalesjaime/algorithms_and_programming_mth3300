@@ -119,7 +119,7 @@ Write a Python class called ComplexNumber that represents a complex number of th
    - magnitude(self) → return the magnitude (absolute value) of the complex number, sqrt(a^2 + b^2).
 
 Example Usage:
-
+```python
 c1 = ComplexNumber(3, 4)
 c2 = ComplexNumber(1, -2)
 
@@ -133,3 +133,4 @@ c4 = c1.multiply(c2)
 c4.display()           # 11 - 2i
 
 print(c1.magnitude())  # 5.0
+```

@@ -150,6 +150,7 @@ Instructions:
 2. Perform three iterations of Newton’s Method by hand  
 3. Show all your calculations for each iteration  
 4. Write the approximate root after the third iteration  
+5. Test and verify your results in python
 
 Hint:  
 - The derivative is $f'(x) = 3x^2 - 1$

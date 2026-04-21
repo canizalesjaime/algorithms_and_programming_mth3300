@@ -256,4 +256,4 @@ Use linked lists when:
 
 
 ## In Class Assignments
-### 1. 
+### 1. Modify the linked list class above, so that if you only pass the data parameter to the insert method, it inserts the node at the end of the list.

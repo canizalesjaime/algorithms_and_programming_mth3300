@@ -83,11 +83,11 @@ The goal is to pick a point close enough to the root so the tangent line approxi
 You want to stop when the guess is “good enough.”
 
 1. Change in x is small
-|x_{n+1} - x_n| < tolerance (e.g., 1e-6)
+$|x_{n+1} - x_n|$ < tolerance (e.g., 1e-6)
 - Meaning the guesses aren’t moving much anymore
 
 2. Function value is small
-|f(x_{n+1})| < tolerance
+$|f(x_{n+1})|$ < tolerance
 - Meaning the current guess is close to zero
 
 3. Maximum iterations
@@ -96,7 +96,7 @@ You want to stop when the guess is “good enough.”
 
 **Recommended practical approach**
 - Use both criteria together:
-|x_{n+1} - x_n| < tol AND |f(x_{n+1})| < tol
+$|x_{n+1} - x_n|$ < tol AND $|f(x_{n+1})|$ < tol
 - Ensures the guess is close to the root and the function value is nearly zero
 
 

@@ -2,7 +2,8 @@
 
 ## table of contents
 1. Linked Lists in Python
-2. In Class Assignments 
+2. Recursion 
+3. In Class Assignments 
 
 ## Linked List in Python
 
@@ -255,5 +256,64 @@ Use linked lists when:
 - You don’t need fast random access  
 
 
+## Recursion 
+Recursion is a technique where a function calls itself to solve a problem by breaking it into smaller versions of the same problem.
+
+**Key parts:**
+- Base case: condition where the function stops
+- Recursive case: the function calls itself on a simpler input
+
+### Example:
+```python
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+```
+
+### Recursion in the Context of Linked Lists
+Recursion fits naturally with linked lists because both are self-referential structures.
+
+- A linked list node contains data and a reference to the next node
+- A recursive function solves a problem by calling itself on a smaller part of the same structure
+
+**Core Idea:**
+A linked list can be seen as:
+head → [data | next] → [data | next] → ... → null
+
+**A recursive function:**
+1. Stops at the base case (node is None)
+2. Processes the current node
+3. Calls itself on the next node
+
+### Example: Traversal
+```python
+def traverse_recursive(node):
+    if node is None:
+        return
+    print(node.data)
+    traverse_recursive(node.next)
+```
+
+### Example: Length
+```python
+def length(node):
+    if node is None:
+        return 0
+    return 1 + length(node.next)
+```
+
+### Example: Search
+```python
+def search(node, target):
+    if node is None:
+        return False
+    if node.data == target:
+        return True
+    return search(node.next, target)
+```
+
+
 ## In Class Assignments
 ### 1. Modify the linked list class above, so that if you only pass the data parameter to the insert method, it inserts the node at the end of the list.
+### 2. 

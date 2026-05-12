@@ -263,4 +263,31 @@ but inside normal Python programs.
 
 
 ## In Class Assignments
-### 1. 
+### 1.
+Given the following NumPy arrays:
+
+```python
+import numpy as np
+
+A = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])
+
+B = np.array([
+    [10, 20, 30],
+    [40, 50, 60]
+])
+```
+
+## Tasks
+
+1. Print the shape of `A`
+2. Add `A` and `B`
+3. Multiply every element in `A` by 2
+4. Find the mean of all elements in `B`
+5. Access the value `5` from array `A`
+6. Create a new array containing only the first row of `B`
+7. Add `100` to every element in `A` using broadcasting
+8. Compute the matrix multiplication:
+$C = A \times B^T$ using NumPy.

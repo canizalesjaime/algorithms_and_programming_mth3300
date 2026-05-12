@@ -371,10 +371,8 @@ print(cs_students)
 
 Suppose we define efficiency as:
 
-\[
-\text{Efficiency} =
-\frac{\text{Score}}{\text{Hours Studied}}
-\]
+
+$\text{Efficiency} = \frac{\text{Score}}{\text{Hours Studied}}$
 
 ```python
 df["Efficiency"] = df["Score"] / df["Hours_Studied"]
